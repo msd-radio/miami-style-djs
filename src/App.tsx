@@ -4,6 +4,9 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
+import DJAuth from "./pages/DJAuth";
+import DJDashboard from "./pages/DJDashboard";
+import DJOnboarding from "./pages/DJOnboarding";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -16,7 +19,9 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/dj-portal" element={<DJAuth />} />
+          <Route path="/dj-portal/dashboard" element={<DJDashboard />} />
+          <Route path="/dj-portal/onboarding" element={<DJOnboarding />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
