@@ -1,0 +1,4 @@
+project_id = "kgtxetpgxoimmrzjpwnk"
+
+[functions.generate-show-clip]
+verify_jwt = false
