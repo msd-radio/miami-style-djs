@@ -75,9 +75,24 @@ const DJOnboarding = () => {
     }
   };
 
+  const isValidSocialUrl = (url: string, allowedHosts: string[]) => {
+    if (!url.trim()) return true; // optional field
+    try {
+      const parsed = new URL(url.trim());
+      return parsed.protocol === "https:" &&
+        allowedHosts.some(h => parsed.hostname === h || parsed.hostname.endsWith("." + h));
+    } catch {
+      return false;
+    }
+  };
+
   const canNext = () => {
     if (currentStep === 0) return form.dj_name.trim().length > 0 && isValidImageUrl(form.profile_image_url);
     if (currentStep === 1) return form.genre.trim().length > 0;
+    if (currentStep === 2) {
+      return isValidSocialUrl(form.instagram, ["instagram.com", "www.instagram.com"]) &&
+        isValidSocialUrl(form.soundcloud, ["soundcloud.com", "www.soundcloud.com"]);
+    }
     return true;
   };
 
@@ -148,8 +163,14 @@ const DJOnboarding = () => {
                 placeholder="Tell us your story..."
               />
             </div>
-            <InputField label="Instagram" value={form.instagram} onChange={(v) => handleChange("instagram", v)} placeholder="@yourhandle" />
+            <InputField label="Instagram" value={form.instagram} onChange={(v) => handleChange("instagram", v)} placeholder="https://instagram.com/yourhandle" />
+            {form.instagram.trim() && !isValidSocialUrl(form.instagram, ["instagram.com", "www.instagram.com"]) && (
+              <p className="text-xs text-destructive mt-1">Must be a valid Instagram HTTPS URL</p>
+            )}
             <InputField label="SoundCloud" value={form.soundcloud} onChange={(v) => handleChange("soundcloud", v)} placeholder="https://soundcloud.com/..." />
+            {form.soundcloud.trim() && !isValidSocialUrl(form.soundcloud, ["soundcloud.com", "www.soundcloud.com"]) && (
+              <p className="text-xs text-destructive mt-1">Must be a valid SoundCloud HTTPS URL</p>
+            )}
           </div>
         )}
         {currentStep === 3 && (
