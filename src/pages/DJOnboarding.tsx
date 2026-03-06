@@ -58,7 +58,8 @@ const DJOnboarding = () => {
       toast.success("Profile created! Welcome to Miami Style DJ's 🔥");
       navigate("/dj-portal/dashboard");
     } catch (err: any) {
-      toast.error(err.message || "Failed to save profile");
+      console.error("Profile save error:", err?.message);
+      toast.error("Failed to save profile. Please try again.");
     } finally {
       setLoading(false);
     }

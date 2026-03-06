@@ -46,7 +46,19 @@ const DJAuth = () => {
         toast.success("Account created! Check your email to confirm.");
       }
     } catch (err: any) {
-      toast.error(err.message || "Something went wrong");
+      const msg = err?.message ?? "";
+      if (msg.includes("Email not confirmed")) {
+        toast.error("Please confirm your email first.");
+      } else if (msg.includes("Invalid login credentials")) {
+        toast.error("Incorrect email or password.");
+      } else if (msg.includes("User already registered")) {
+        toast.error("An account with this email already exists.");
+      } else if (msg.includes("Password should be")) {
+        toast.error("Password must be at least 6 characters.");
+      } else {
+        console.error("Auth error:", msg);
+        toast.error("Something went wrong. Please try again.");
+      }
     } finally {
       setLoading(false);
     }
