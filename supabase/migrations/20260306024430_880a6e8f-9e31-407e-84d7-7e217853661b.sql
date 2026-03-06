@@ -1,0 +1,1 @@
+ALTER TABLE public.dj_profiles ADD CONSTRAINT dj_profiles_profile_image_url_https CHECK (profile_image_url IS NULL OR profile_image_url LIKE 'https://%');
