@@ -1,19 +1,44 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import logo from "@/assets/miami-style-djs-logo.jpg";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const links = [
-    { label: "Home", to: "/" },
-    { label: "About", to: "/#about" },
-    { label: "DJs", to: "/#djs" },
-    { label: "Shows", to: "/#shows" },
-    { label: "Contact", to: "/#contact" },
+    { label: "Home", hash: "" },
+    { label: "About", hash: "about" },
+    { label: "Shows", hash: "shows" },
+    { label: "Contact", hash: "contact" },
   ];
+
+  const handleNavClick = useCallback(
+    (hash: string) => {
+      setOpen(false);
+      if (!hash) {
+        navigate("/");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      }
+      const scrollToEl = () => {
+        const el = document.getElementById(hash);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
+        }
+      };
+      if (location.pathname !== "/") {
+        navigate("/");
+        setTimeout(scrollToEl, 100);
+      } else {
+        scrollToEl();
+      }
+    },
+    [navigate, location.pathname]
+  );
 
   return (
     <motion.nav
@@ -28,13 +53,13 @@ const Navbar = () => {
 
         <div className="hidden md:flex items-center gap-8">
           {links.map((l) => (
-            <Link
+            <button
               key={l.label}
-              to={l.to}
+              onClick={() => handleNavClick(l.hash)}
               className="font-heading text-sm font-semibold uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors"
             >
               {l.label}
-            </Link>
+            </button>
           ))}
           <Link
             to="/dj-portal"
@@ -56,14 +81,13 @@ const Navbar = () => {
           className="md:hidden bg-card border-b border-border px-4 pb-4 space-y-3"
         >
           {links.map((l) => (
-            <Link
+            <button
               key={l.label}
-              to={l.to}
-              onClick={() => setOpen(false)}
-              className="block font-heading text-sm font-semibold uppercase tracking-wider text-muted-foreground hover:text-primary"
+              onClick={() => handleNavClick(l.hash)}
+              className="block w-full text-left font-heading text-sm font-semibold uppercase tracking-wider text-muted-foreground hover:text-primary"
             >
               {l.label}
-            </Link>
+            </button>
           ))}
           <Link
             to="/dj-portal"
