@@ -8,6 +8,7 @@ import DJAuth from "./pages/DJAuth";
 import DJDashboard from "./pages/DJDashboard";
 import DJOnboarding from "./pages/DJOnboarding";
 import NotFound from "./pages/NotFound";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const queryClient = new QueryClient();
 
@@ -20,8 +21,8 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/dj-portal" element={<DJAuth />} />
-          <Route path="/dj-portal/dashboard" element={<DJDashboard />} />
-          <Route path="/dj-portal/onboarding" element={<DJOnboarding />} />
+          <Route path="/dj-portal/dashboard" element={<ProtectedRoute><DJDashboard /></ProtectedRoute>} />
+          <Route path="/dj-portal/onboarding" element={<ProtectedRoute><DJOnboarding /></ProtectedRoute>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
