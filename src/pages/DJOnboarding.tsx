@@ -64,8 +64,18 @@ const DJOnboarding = () => {
     }
   };
 
+  const isValidImageUrl = (url: string) => {
+    if (!url.trim()) return true; // optional field
+    try {
+      const parsed = new URL(url.trim());
+      return parsed.protocol === "https:";
+    } catch {
+      return false;
+    }
+  };
+
   const canNext = () => {
-    if (currentStep === 0) return form.dj_name.trim().length > 0;
+    if (currentStep === 0) return form.dj_name.trim().length > 0 && isValidImageUrl(form.profile_image_url);
     if (currentStep === 1) return form.genre.trim().length > 0;
     return true;
   };
@@ -114,6 +124,9 @@ const DJOnboarding = () => {
           <div className="space-y-4">
             <InputField label="DJ Name" value={form.dj_name} onChange={(v) => handleChange("dj_name", v)} placeholder="DJ Blaze" />
             <InputField label="Profile Image URL (optional)" value={form.profile_image_url} onChange={(v) => handleChange("profile_image_url", v)} placeholder="https://..." />
+            {form.profile_image_url.trim() && !isValidImageUrl(form.profile_image_url) && (
+              <p className="text-xs text-destructive mt-1">Must be a valid HTTPS URL</p>
+            )}
           </div>
         )}
         {currentStep === 1 && (
