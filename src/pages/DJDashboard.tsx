@@ -138,6 +138,13 @@ const DJDashboard = () => {
             actionLabel={generatingClip ? "Generating..." : "Generate Clip"}
             disabled={generatingClip}
           />
+          <DashboardCard
+            icon={BookOpen}
+            title="New DJ Onboarding Guide"
+            description="Station checklist, contract, and everything you need to get started"
+            action={() => navigate("/dj-portal/onboarding-guide")}
+            actionLabel="View Guide"
+          />
         </div>
 
         {/* AI generated clip */}
