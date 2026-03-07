@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import DJAuth from "./pages/DJAuth";
 import DJDashboard from "./pages/DJDashboard";
 import DJOnboarding from "./pages/DJOnboarding";
+import DJOnboardingGuide from "./pages/DJOnboardingGuide";
 import NotFound from "./pages/NotFound";
 import ProtectedRoute from "./components/ProtectedRoute";
 
@@ -23,6 +24,7 @@ const App = () => (
           <Route path="/dj-portal" element={<DJAuth />} />
           <Route path="/dj-portal/dashboard" element={<ProtectedRoute><DJDashboard /></ProtectedRoute>} />
           <Route path="/dj-portal/onboarding" element={<ProtectedRoute><DJOnboarding /></ProtectedRoute>} />
+          <Route path="/dj-portal/onboarding-guide" element={<ProtectedRoute><DJOnboardingGuide /></ProtectedRoute>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
