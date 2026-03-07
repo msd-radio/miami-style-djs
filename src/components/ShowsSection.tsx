@@ -6,7 +6,7 @@ const shows = [
   { name: "Midday Vibes", time: "10AM - 2PM", genre: "Reggaeton / Latin" },
   { name: "Afternoon Mix", time: "2PM - 6PM", genre: "EDM / House" },
   { name: "Prime Time Party", time: "6PM - 10PM", genre: "Top 40 / Club Hits", hot: true },
-  { name: "Late Night Sessions", time: "10PM - 2AM", genre: "Deep House / Afrobeats" },
+  { name: "DJ Black's Quiet Storm", time: "11PM - 6AM", genre: "Slow Jams", hot: true },
   { name: "After Hours", time: "2AM - 6AM", genre: "Chill / Lo-fi" },
 ];
 
