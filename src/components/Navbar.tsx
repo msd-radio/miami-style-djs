@@ -13,7 +13,6 @@ const Navbar = () => {
     { label: "Home", hash: "" },
     { label: "About", hash: "about" },
     { label: "Shows", hash: "shows" },
-    { label: "Onboarding", hash: "onboarding" },
     { label: "Contact", hash: "contact" },
   ];
 

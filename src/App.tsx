@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import DJAuth from "./pages/DJAuth";
 import DJDashboard from "./pages/DJDashboard";
 import DJOnboarding from "./pages/DJOnboarding";
+import DJOnboardingGuide from "./pages/DJOnboardingGuide";
 import NotFound from "./pages/NotFound";
 import ProtectedRoute from "./components/ProtectedRoute";
 
