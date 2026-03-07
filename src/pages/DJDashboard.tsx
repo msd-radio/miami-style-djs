@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { supabase } from "@/integrations/supabase/client";
 import { useNavigate, Link } from "react-router-dom";
 import { toast } from "sonner";
-import { LogOut, User, Music, Mic2, Settings, Sparkles } from "lucide-react";
+import { LogOut, User, Music, Mic2, Settings, Sparkles, BookOpen } from "lucide-react";
 import logo from "@/assets/miami-style-djs-logo.jpg";
 import type { User as SupaUser } from "@supabase/supabase-js";
 
