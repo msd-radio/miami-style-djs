@@ -129,9 +129,14 @@ const DJRegistration = () => {
 
       if (error) throw error;
 
+      // Call edge function to send emails (runs asynchronously)
+      supabase.functions.invoke("send-dj-registration", {
+        body: form,
+      }).catch(console.error);
+
       toast({
         title: "🎉 Registration Submitted!",
-        description: "Check your email to verify your account, then you'll get your welcome email with portal access.",
+        description: "Welcome to Miami Style DJs! Redirecting to Onboarding...",
       });
 
       setForm({ djName: "", firstName: "", lastName: "", email: "", experience: "", state: "", phone: "", facebook: "", instagram: "", howFound: "" });
