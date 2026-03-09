@@ -4,6 +4,7 @@ import AboutSection from "@/components/AboutSection";
 import ShowsSection from "@/components/ShowsSection";
 import Footer from "@/components/Footer";
 import LivePlayer from "@/components/LivePlayer";
+import FloatingMemberButton from "@/components/FloatingMemberButton";
 
 const Index = () => {
   return (
@@ -14,6 +15,7 @@ const Index = () => {
       <ShowsSection />
       <Footer />
       <LivePlayer />
+      <FloatingMemberButton />
     </div>
   );
 };
