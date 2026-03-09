@@ -12,6 +12,9 @@ const DJAuth = () => {
   const [password, setPassword] = useState("");
   const [fullName, setFullName] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showForgot, setShowForgot] = useState(false);
+  const [forgotEmail, setForgotEmail] = useState("");
+  const [forgotLoading, setForgotLoading] = useState(false);
   const navigate = useNavigate();
 
   // Redirect if already authenticated (e.g. returning from email confirmation link)
@@ -62,6 +65,23 @@ const DJAuth = () => {
       }
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleForgotPassword = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setForgotLoading(true);
+    try {
+      const { error } = await supabase.auth.resetPasswordForEmail(forgotEmail, {
+        redirectTo: `${window.location.origin}/reset-password`,
+      });
+      if (error) throw error;
+      toast.success("Password reset link sent! Check your email.");
+      setShowForgot(false);
+    } catch (err: any) {
+      toast.error(err?.message || "Failed to send reset email.");
+    } finally {
+      setForgotLoading(false);
     }
   };
 
@@ -126,7 +146,16 @@ const DJAuth = () => {
               minLength={6}
               className="w-full px-4 py-2.5 rounded-lg bg-muted border border-border text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition"
               placeholder="••••••••"
-            />
+             />
+            {isLogin && (
+              <button
+                type="button"
+                onClick={() => setShowForgot(true)}
+                className="text-xs text-primary hover:underline mt-1"
+              >
+                Forgot password?
+              </button>
+            )}
           </div>
           <button
             type="submit"
@@ -197,6 +226,44 @@ const DJAuth = () => {
           </button>
         </p>
       </motion.div>
+
+      {/* Forgot Password Modal */}
+      {showForgot && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-sm px-4">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="w-full max-w-sm bg-card border border-border rounded-2xl p-6"
+          >
+            <h2 className="text-lg font-display font-bold text-foreground mb-1">Reset Password</h2>
+            <p className="text-sm text-muted-foreground mb-4">Enter your email and we'll send a reset link.</p>
+            <form onSubmit={handleForgotPassword} className="space-y-4">
+              <input
+                type="email"
+                value={forgotEmail}
+                onChange={(e) => setForgotEmail(e.target.value)}
+                required
+                className="w-full px-4 py-2.5 rounded-lg bg-muted border border-border text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition"
+                placeholder="dj@miamistyledjs.com"
+              />
+              <button
+                type="submit"
+                disabled={forgotLoading}
+                className="w-full py-3 rounded-lg bg-gradient-fire text-primary-foreground font-heading font-bold uppercase tracking-wider shadow-fire hover:scale-[1.02] transition-transform disabled:opacity-50"
+              >
+                {forgotLoading ? "Sending..." : "Send Reset Link"}
+              </button>
+              <button
+                type="button"
+                onClick={() => setShowForgot(false)}
+                className="w-full text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Cancel
+              </button>
+            </form>
+          </motion.div>
+        </div>
+      )}
     </div>
   );
 };
