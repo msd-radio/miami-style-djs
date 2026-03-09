@@ -10,6 +10,7 @@ import DJOnboarding from "./pages/DJOnboarding";
 import DJOnboardingGuide from "./pages/DJOnboardingGuide";
 import DJRegistration from "./pages/DJRegistration";
 import NotFound from "./pages/NotFound";
+import ResetPassword from "./pages/ResetPassword";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 const queryClient = new QueryClient();
