@@ -146,7 +146,16 @@ const DJAuth = () => {
               minLength={6}
               className="w-full px-4 py-2.5 rounded-lg bg-muted border border-border text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition"
               placeholder="••••••••"
-            />
+             />
+            {isLogin && (
+              <button
+                type="button"
+                onClick={() => setShowForgot(true)}
+                className="text-xs text-primary hover:underline mt-1"
+              >
+                Forgot password?
+              </button>
+            )}
           </div>
           <button
             type="submit"
