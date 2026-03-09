@@ -11,6 +11,7 @@ import DJOnboardingGuide from "./pages/DJOnboardingGuide";
 import DJRegistration from "./pages/DJRegistration";
 import NotFound from "./pages/NotFound";
 import ResetPassword from "./pages/ResetPassword";
+import DJProfile from "./pages/DJProfile";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 const queryClient = new QueryClient();
