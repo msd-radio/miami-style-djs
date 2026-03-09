@@ -109,6 +109,13 @@ const Navbar = () => {
             DJ Registration
           </Link>
           <Link
+            to="/dj-portal/onboarding-guide"
+            onClick={() => setOpen(false)}
+            className="block text-center px-5 py-2 rounded-lg bg-accent text-accent-foreground font-heading font-bold text-sm uppercase tracking-wider"
+          >
+            Onboarding Guide
+          </Link>
+          <Link
             to="/dj-portal"
             onClick={() => setOpen(false)}
             className="block text-center px-5 py-2 rounded-lg bg-gradient-fire text-primary-foreground font-heading font-bold text-sm uppercase tracking-wider"
