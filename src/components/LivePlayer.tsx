@@ -95,7 +95,7 @@ const LivePlayer = () => {
           </button>
 
           {/* Right: volume */}
-          <div className="hidden sm:flex items-center gap-2 w-36">
+          <div className="hidden sm:flex items-center gap-2 w-36 mr-[5rem]">
             <button onClick={toggleMute} className="text-muted-foreground hover:text-foreground transition-colors">
               {isMuted || volume[0] === 0 ? (
                 <VolumeX className="w-4 h-4" />
