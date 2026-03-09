@@ -30,6 +30,7 @@ const App = () => (
           <Route path="/dj-portal/onboarding" element={<ProtectedRoute><DJOnboarding /></ProtectedRoute>} />
           <Route path="/dj-portal/onboarding-guide" element={<ProtectedRoute><DJOnboardingGuide /></ProtectedRoute>} />
           <Route path="/dj-registration" element={<DJRegistration />} />
+          <Route path="/book-dj" element={<BookDJ />} />
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/dj/:djName" element={<DJProfile />} />
           <Route path="*" element={<NotFound />} />

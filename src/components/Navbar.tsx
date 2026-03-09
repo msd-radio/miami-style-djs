@@ -108,9 +108,16 @@ const Navbar = () => {
             </button>
           ))}
           <Link
-            to="/dj-registration"
+            to="/book-dj"
             onClick={() => setOpen(false)}
             className="block text-center px-5 py-2 rounded-lg bg-gradient-miami text-primary-foreground font-heading font-bold text-sm uppercase tracking-wider"
+          >
+            Book a DJ
+          </Link>
+          <Link
+            to="/dj-registration"
+            onClick={() => setOpen(false)}
+            className="block text-center px-5 py-2 rounded-lg border border-primary text-primary font-heading font-bold text-sm uppercase tracking-wider"
           >
             DJ Registration
           </Link>
