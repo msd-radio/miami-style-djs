@@ -9,6 +9,7 @@ import DJDashboard from "./pages/DJDashboard";
 import DJOnboarding from "./pages/DJOnboarding";
 import DJOnboardingGuide from "./pages/DJOnboardingGuide";
 import DJRegistration from "./pages/DJRegistration";
+import BookDJ from "./pages/BookDJ";
 import NotFound from "./pages/NotFound";
 import ResetPassword from "./pages/ResetPassword";
 import DJProfile from "./pages/DJProfile";
