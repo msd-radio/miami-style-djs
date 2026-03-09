@@ -17,8 +17,8 @@ const HeroSection = () => {
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-          >
+            transition={{ duration: 0.8 }}>
+            
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 mb-6">
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
               <span className="text-xs font-heading font-semibold uppercase tracking-widest text-primary">
@@ -39,15 +39,15 @@ const HeroSection = () => {
 
             <div className="flex flex-wrap gap-4">
               <a
-                href="#shows"
-                className="px-8 py-3 rounded-lg bg-gradient-fire text-primary-foreground font-heading font-bold uppercase tracking-wider shadow-fire hover:scale-105 transition-transform"
-              >
+
+                className="px-8 py-3 rounded-lg bg-gradient-fire text-primary-foreground font-heading font-bold uppercase tracking-wider shadow-fire hover:scale-105 transition-transform" href="https://ms-radio.miamistyledjs.com/listen/miami_style_djs_/radio.mp3">
+                
                 Listen Live
               </a>
               <a
                 href="#about"
-                className="px-8 py-3 rounded-lg border border-border bg-card/50 text-foreground font-heading font-semibold uppercase tracking-wider hover:border-primary/50 transition-colors"
-              >
+                className="px-8 py-3 rounded-lg border border-border bg-card/50 text-foreground font-heading font-semibold uppercase tracking-wider hover:border-primary/50 transition-colors">
+                
                 Learn More
               </a>
             </div>
@@ -57,21 +57,21 @@ const HeroSection = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative hidden lg:block"
-          >
+            className="relative hidden lg:block">
+            
             <div className="relative">
               <div className="absolute -inset-4 rounded-2xl bg-gradient-fire opacity-20 blur-2xl" />
               <img
                 src={djHero}
                 alt="Miami Style DJs Live On Air"
-                className="relative rounded-2xl w-full max-w-lg mx-auto shadow-2xl"
-              />
+                className="relative rounded-2xl w-full max-w-lg mx-auto shadow-2xl" />
+              
             </div>
           </motion.div>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default HeroSection;
