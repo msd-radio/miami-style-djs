@@ -9,6 +9,7 @@ import DJDashboard from "./pages/DJDashboard";
 import DJOnboarding from "./pages/DJOnboarding";
 import DJOnboardingGuide from "./pages/DJOnboardingGuide";
 import DJRegistration from "./pages/DJRegistration";
+import BookDJ from "./pages/BookDJ";
 import NotFound from "./pages/NotFound";
 import ResetPassword from "./pages/ResetPassword";
 import DJProfile from "./pages/DJProfile";
@@ -29,6 +30,7 @@ const App = () => (
           <Route path="/dj-portal/onboarding" element={<ProtectedRoute><DJOnboarding /></ProtectedRoute>} />
           <Route path="/dj-portal/onboarding-guide" element={<ProtectedRoute><DJOnboardingGuide /></ProtectedRoute>} />
           <Route path="/dj-registration" element={<DJRegistration />} />
+          <Route path="/book-dj" element={<BookDJ />} />
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/dj/:djName" element={<DJProfile />} />
           <Route path="*" element={<NotFound />} />
