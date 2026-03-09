@@ -28,6 +28,7 @@ const App = () => (
           <Route path="/dj-portal/onboarding" element={<ProtectedRoute><DJOnboarding /></ProtectedRoute>} />
           <Route path="/dj-portal/onboarding-guide" element={<ProtectedRoute><DJOnboardingGuide /></ProtectedRoute>} />
           <Route path="/dj-registration" element={<DJRegistration />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
