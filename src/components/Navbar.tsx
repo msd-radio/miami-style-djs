@@ -96,6 +96,13 @@ const Navbar = () => {
             </button>
           ))}
           <Link
+            to="/dj-registration"
+            onClick={() => setOpen(false)}
+            className="block text-center px-5 py-2 rounded-lg bg-gradient-miami text-primary-foreground font-heading font-bold text-sm uppercase tracking-wider"
+          >
+            DJ Registration
+          </Link>
+          <Link
             to="/dj-portal"
             onClick={() => setOpen(false)}
             className="block text-center px-5 py-2 rounded-lg bg-gradient-fire text-primary-foreground font-heading font-bold text-sm uppercase tracking-wider"
