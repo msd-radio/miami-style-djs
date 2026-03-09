@@ -143,6 +143,11 @@ const DJRegistration = () => {
       setProfilePhoto(null);
       setProfilePhotoPreview(null);
       setLogoFile(null);
+
+      // Redirect to onboarding guide
+      setTimeout(() => {
+        navigate("/dj-portal/onboarding-guide");
+      }, 1500);
       setLogoPreview(null);
     } catch (err: any) {
       toast({ title: "Registration failed", description: err.message, variant: "destructive" });
