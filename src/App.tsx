@@ -11,6 +11,7 @@ import DJOnboardingGuide from "./pages/DJOnboardingGuide";
 import DJRegistration from "./pages/DJRegistration";
 import NotFound from "./pages/NotFound";
 import ResetPassword from "./pages/ResetPassword";
+import DJProfile from "./pages/DJProfile";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 const queryClient = new QueryClient();
@@ -29,6 +30,7 @@ const App = () => (
           <Route path="/dj-portal/onboarding-guide" element={<ProtectedRoute><DJOnboardingGuide /></ProtectedRoute>} />
           <Route path="/dj-registration" element={<DJRegistration />} />
           <Route path="/reset-password" element={<ResetPassword />} />
+          <Route path="/dj/:djName" element={<DJProfile />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
