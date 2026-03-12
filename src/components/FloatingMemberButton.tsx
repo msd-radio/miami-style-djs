@@ -8,7 +8,7 @@ const FloatingMemberButton = () => {
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ delay: 1, type: "spring", stiffness: 200 }}
-      className="fixed top-6 right-6 z-50"
+      className="fixed top-[calc(1.5rem+192px)] right-6 z-50"
     >
       <Link
         to="/dj-portal"
