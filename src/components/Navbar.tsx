@@ -81,9 +81,9 @@ const Navbar = () => {
           </Link>
           <Link
             to="/dj-portal"
-            className="px-5 py-2 rounded-lg bg-gradient-fire text-primary-foreground font-heading font-bold text-sm uppercase tracking-wider shadow-fire hover:scale-105 transition-transform"
+            className="flex items-center gap-2 px-5 py-2 rounded-lg bg-gradient-fire text-primary-foreground font-heading font-bold text-sm uppercase tracking-wider shadow-fire hover:scale-105 transition-transform"
           >
-            DJ Portal
+            Member Area
           </Link>
         </div>
 
@@ -133,7 +133,7 @@ const Navbar = () => {
             onClick={() => setOpen(false)}
             className="block text-center px-5 py-2 rounded-lg bg-gradient-fire text-primary-foreground font-heading font-bold text-sm uppercase tracking-wider"
           >
-            DJ Portal
+            Member Area
           </Link>
         </motion.div>
       )}
