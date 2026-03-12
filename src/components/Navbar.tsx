@@ -139,6 +139,13 @@ const Navbar = () => {
             onClick={() => setOpen(false)}
             className="block text-center px-5 py-2 rounded-lg bg-gradient-fire text-primary-foreground font-heading font-bold text-sm uppercase tracking-wider"
           >
+            DJ Portal
+          </Link>
+          <Link
+            to="/dj-portal"
+            onClick={() => setOpen(false)}
+            className="block text-center px-5 py-2 rounded-lg bg-primary text-primary-foreground font-heading font-bold text-sm uppercase tracking-wider"
+          >
             Member Area
           </Link>
         </motion.div>
