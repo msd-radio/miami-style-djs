@@ -69,6 +69,25 @@ const BookDJ = () => {
   const onSubmit = async (data: BookingFormData) => {
     setIsSubmitting(true);
     try {
+      // Save booking to database
+      const { error: dbError } = await supabase.from("booking_inquiries").insert({
+        full_name: data.fullName,
+        email: data.email,
+        phone: data.phone,
+        event_date: data.eventDate,
+        event_time: data.eventTime,
+        event_type: data.eventType,
+        venue: data.venue,
+        city: data.city,
+        state: data.state,
+        guest_count: data.guestCount,
+        music_genres: data.musicGenres,
+        special_requests: data.specialRequests,
+        budget: data.budget,
+      });
+      if (dbError) console.error("DB save error:", dbError);
+
+      // Send notification emails
       const { error } = await supabase.functions.invoke("send-dj-booking", {
         body: data,
       });

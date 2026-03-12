@@ -14,6 +14,63 @@ export type Database = {
   }
   public: {
     Tables: {
+      booking_inquiries: {
+        Row: {
+          budget: string | null
+          city: string | null
+          created_at: string
+          email: string
+          event_date: string
+          event_time: string | null
+          event_type: string
+          full_name: string
+          guest_count: string | null
+          id: string
+          music_genres: string | null
+          phone: string | null
+          special_requests: string | null
+          state: string | null
+          status: string
+          venue: string | null
+        }
+        Insert: {
+          budget?: string | null
+          city?: string | null
+          created_at?: string
+          email: string
+          event_date: string
+          event_time?: string | null
+          event_type: string
+          full_name: string
+          guest_count?: string | null
+          id?: string
+          music_genres?: string | null
+          phone?: string | null
+          special_requests?: string | null
+          state?: string | null
+          status?: string
+          venue?: string | null
+        }
+        Update: {
+          budget?: string | null
+          city?: string | null
+          created_at?: string
+          email?: string
+          event_date?: string
+          event_time?: string | null
+          event_type?: string
+          full_name?: string
+          guest_count?: string | null
+          id?: string
+          music_genres?: string | null
+          phone?: string | null
+          special_requests?: string | null
+          state?: string | null
+          status?: string
+          venue?: string | null
+        }
+        Relationships: []
+      }
       dj_profiles: {
         Row: {
           bio: string | null
