@@ -81,7 +81,13 @@ const Navbar = () => {
           </Link>
           <Link
             to="/dj-portal"
-            className="flex items-center gap-2 px-5 py-2 rounded-lg bg-gradient-fire text-primary-foreground font-heading font-bold text-sm uppercase tracking-wider shadow-fire hover:scale-105 transition-transform"
+            className="px-5 py-2 rounded-lg bg-gradient-fire text-primary-foreground font-heading font-bold text-sm uppercase tracking-wider shadow-fire hover:scale-105 transition-transform"
+          >
+            DJ Portal
+          </Link>
+          <Link
+            to="/dj-portal"
+            className="flex items-center gap-2 px-5 py-2 rounded-lg bg-primary text-primary-foreground font-heading font-bold text-sm uppercase tracking-wider hover:scale-105 transition-transform"
           >
             Member Area
           </Link>
@@ -132,6 +138,13 @@ const Navbar = () => {
             to="/dj-portal"
             onClick={() => setOpen(false)}
             className="block text-center px-5 py-2 rounded-lg bg-gradient-fire text-primary-foreground font-heading font-bold text-sm uppercase tracking-wider"
+          >
+            DJ Portal
+          </Link>
+          <Link
+            to="/dj-portal"
+            onClick={() => setOpen(false)}
+            className="block text-center px-5 py-2 rounded-lg bg-primary text-primary-foreground font-heading font-bold text-sm uppercase tracking-wider"
           >
             Member Area
           </Link>
