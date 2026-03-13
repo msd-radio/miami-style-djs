@@ -7,7 +7,7 @@ const shows = [
   { name: "Afternoon Mix", time: "2PM - 6PM", genre: "EDM / House" },
   { name: "Prime Time Party", time: "6PM - 10PM", genre: "Top 40 / Club Hits", hot: true },
   { name: "DJ Black's Quiet Storm", time: "11PM - 6AM", genre: "Slow Jams", hot: true },
-  { name: "DJ Clever Podcast", time: "5PM - 6PM", genre: "Podcast" },
+  { name: "DJ Clever Podcast", time: "5PM - 6PM", genre: "Podcast", hot: true },
 ];
 
 const ShowsSection = () => (
