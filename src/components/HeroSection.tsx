@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import djHero from "@/assets/dj-hero.png";
+import djHero from "@/assets/dj-hero-new.jpg";
 
 const HeroSection = () => {
   return (
