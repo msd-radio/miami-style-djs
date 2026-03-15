@@ -149,6 +149,15 @@ const Navbar = () => {
           >
             DJ Portal
           </Link>
+          <a
+            href="https://ms-radio.miamistyledjs.com/login"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setOpen(false)}
+            className="block text-center px-5 py-2 rounded-lg bg-gradient-miami text-primary-foreground font-heading font-bold text-sm uppercase tracking-wider"
+          >
+            Radio Station
+          </a>
           <Link
             to="/dj-portal"
             onClick={() => setOpen(false)}
