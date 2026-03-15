@@ -85,6 +85,14 @@ const Navbar = () => {
           >
             DJ Portal
           </Link>
+          <a
+            href="https://ms-radio.miamistyledjs.com/login"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-5 py-2 rounded-lg bg-gradient-miami text-primary-foreground font-heading font-bold text-sm uppercase tracking-wider hover:scale-105 transition-transform"
+          >
+            Radio Station
+          </a>
           <Link
             to="/dj-portal"
             className="flex items-center gap-2 px-5 py-2 rounded-lg bg-primary text-primary-foreground font-heading font-bold text-sm uppercase tracking-wider hover:scale-105 transition-transform"
