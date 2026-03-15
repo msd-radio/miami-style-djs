@@ -81,14 +81,11 @@ const DJDashboard = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background pt-16">
+      <Navbar />
       {/* Top bar */}
-      <header className="border-b border-border bg-card/50 backdrop-blur-xl sticky top-0 z-50">
-        <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-3">
-            <img src={logo} alt="Miami Style DJs" className="h-8 rounded" />
-            <span className="font-display text-sm font-bold text-foreground uppercase">DJ Portal</span>
-          </Link>
+      <header className="border-b border-border bg-card/50 backdrop-blur-xl sticky top-16 z-40">
+        <div className="container mx-auto px-4 h-12 flex items-center justify-end">
           <div className="flex items-center gap-4">
             <span className="text-sm text-muted-foreground hidden sm:block">
               {user?.email}
