@@ -6,6 +6,7 @@ import { toast } from "sonner";
 import { LogOut, User, Music, Mic2, Settings, Sparkles, BookOpen } from "lucide-react";
 import logo from "@/assets/miami-style-djs-logo.jpg";
 import type { User as SupaUser } from "@supabase/supabase-js";
+import Navbar from "@/components/Navbar";
 
 const DJDashboard = () => {
   const [user, setUser] = useState<SupaUser | null>(null);
