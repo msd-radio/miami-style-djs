@@ -40,7 +40,7 @@ const HeroSection = () => {
             <div className="flex flex-wrap gap-4">
               <a
 
-                className="px-8 py-3 rounded-lg bg-gradient-fire text-primary-foreground font-heading font-bold uppercase tracking-wider shadow-fire hover:scale-105 transition-transform" href="https://ms-radio.miamistyledjs.com/listen/miami_style_djs_/radio.mp3">
+                className="px-8 py-3 rounded-lg bg-gradient-fire text-primary-foreground font-heading font-bold uppercase tracking-wider shadow-fire hover:scale-105 transition-transform" href="https://radio.miamistyledjs.com/listen/miami_style_djs_/radio.mp3">
                 
                 Listen Live
               </a>
