@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Play, Pause, Volume2, VolumeX, Radio } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
 
-const STREAM_URL = "https://ms-radio.miamistyledjs.com/listen/miami_style_djs_/radio.mp3";
+const STREAM_URL = "https://radio.miamistyledjs.com/listen/miami_style_djs_/radio.mp3";
 
 const LivePlayer = () => {
   const [isPlaying, setIsPlaying] = useState(false);
