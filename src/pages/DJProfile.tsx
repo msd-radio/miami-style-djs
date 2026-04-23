@@ -5,6 +5,18 @@ import { supabase } from "@/integrations/supabase/client";
 import { Music, Instagram, Headphones, ArrowLeft } from "lucide-react";
 import logo from "@/assets/miami-style-djs-logo.jpg";
 
+// Only allow https:// links to be rendered as clickable hrefs.
+// Blocks javascript:, data:, and other dangerous schemes that bypass `rel`.
+const safeHttpsUrl = (url: string | null | undefined): string | undefined => {
+  if (!url) return undefined;
+  try {
+    const parsed = new URL(url);
+    return parsed.protocol === "https:" ? parsed.toString() : undefined;
+  } catch {
+    return undefined;
+  }
+};
+
 const DJProfile = () => {
   const { djName } = useParams<{ djName: string }>();
   const [profile, setProfile] = useState<any>(null);
@@ -17,7 +29,9 @@ const DJProfile = () => {
       const decoded = decodeURIComponent(djName).replace(/-/g, " ");
       const { data, error } = await supabase
         .from("dj_profiles")
-        .select("*")
+        .select(
+          "id, dj_name, genre, bio, profile_image_url, instagram_url, soundcloud_url, created_at"
+        )
         .ilike("dj_name", decoded)
         .eq("is_active", true)
         .eq("onboarding_complete", true)
@@ -121,9 +135,9 @@ const DJProfile = () => {
             transition={{ delay: 0.3 }}
             className="flex flex-wrap gap-4 justify-center"
           >
-            {profile.instagram_url && (
+            {profile.instagram_url && safeHttpsUrl(profile.instagram_url) && (
               <a
-                href={profile.instagram_url}
+                href={safeHttpsUrl(profile.instagram_url)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-card border border-border hover:border-primary/40 text-foreground font-heading font-semibold text-sm uppercase tracking-wider transition-colors"
@@ -131,9 +145,9 @@ const DJProfile = () => {
                 <Instagram size={18} className="text-primary" /> Instagram
               </a>
             )}
-            {profile.soundcloud_url && (
+            {profile.soundcloud_url && safeHttpsUrl(profile.soundcloud_url) && (
               <a
-                href={profile.soundcloud_url}
+                href={safeHttpsUrl(profile.soundcloud_url)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-card border border-border hover:border-primary/40 text-foreground font-heading font-semibold text-sm uppercase tracking-wider transition-colors"
