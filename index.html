@@ -3,25 +3,72 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- TODO: Set the document title to the name of your application -->
+    
+    <!-- Browser tab title: Miami Style Djs (no "Lovable App" references) -->
     <title>Miami Style Djs</title>
-    <meta name="description" content="Lovable Generated Project">
-    <meta name="author" content="Lovable" />
+    
+    <!-- Meta description updated for clarity and branding -->
+    <meta name="description" content="Miami Style Djs - Professional DJ services bringing vibrant energy and premium sound to events across Miami." />
+    <meta name="author" content="Miami Style Djs" />
 
-    <!-- TODO: Update og:title to match your application name -->
-    
-    
+    <!-- Open Graph / Social Media Meta Tags (consistent with brand name) -->
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/a11e0e82-7759-412c-b1a5-a7f91ef8f2b9/id-preview-2136aa81--c27f1f53-c65c-42ad-9434-0b0ad5b0898c.lovable.app-1772603095339.png">
+    <meta property="og:title" content="Miami Style Djs" />
+    <meta property="og:description" content="Miami Style Djs - Professional DJ services bringing vibrant energy and premium sound to events across Miami." />
+    <meta property="og:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/a11e0e82-7759-412c-b1a5-a7f91ef8f2b9/id-preview-2136aa81--c27f1f53-c65c-42ad-9434-0b0ad5b0898c.lovable.app-1772603095339.png" />
 
+    <!-- Twitter Card Meta (fully aligned with Miami Style Djs) -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@Lovable" />
-    <meta name="twitter:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/a11e0e82-7759-412c-b1a5-a7f91ef8f2b9/id-preview-2136aa81--c27f1f53-c65c-42ad-9434-0b0ad5b0898c.lovable.app-1772603095339.png">
-    <meta property="og:title" content="Miami Style Djs">
-  <meta name="twitter:title" content="Miami Style Djs">
-  <meta property="og:description" content="Lovable Generated Project">
-  <meta name="twitter:description" content="Lovable Generated Project">
-</head>
+    <meta name="twitter:site" content="@MiamiStyleDjs" />
+    <meta name="twitter:title" content="Miami Style Djs" />
+    <meta name="twitter:description" content="Miami Style Djs - Professional DJ services bringing vibrant energy and premium sound to events across Miami." />
+    <meta name="twitter:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/a11e0e82-7759-412c-b1a5-a7f91ef8f2b9/id-preview-2136aa81--c27f1f53-c65c-42ad-9434-0b0ad5b0898c.lovable.app-1772603095339.png" />
+
+    <!-- Force correct browser tab title after any potential dynamic overrides (ensures "Miami Style Djs" stays visible) -->
+    <script>
+      (function() {
+        // Immediately set the correct title at parse time
+        var CORRECT_TITLE = "Miami Style Djs";
+        if (document.title !== CORRECT_TITLE) {
+          document.title = CORRECT_TITLE;
+        }
+        
+        // Reinforcement after full load and potential React/SPA updates
+        function enforceTitle() {
+          if (document.title !== CORRECT_TITLE) {
+            document.title = CORRECT_TITLE;
+          }
+        }
+        
+        // Wait for DOM and any client-side framework hydration
+        window.addEventListener('load', function() {
+          enforceTitle();
+          // Additional safety checks: 0.5s, 1.5s, and 3s after load
+          setTimeout(enforceTitle, 500);
+          setTimeout(enforceTitle, 1500);
+          setTimeout(enforceTitle, 3000);
+        });
+        
+        // Also ensure if the title is changed via pushState or similar, we re-apply
+        // (non-invasive fallback using MutationObserver on title element if exists)
+        if (window.MutationObserver) {
+          var titleNode = document.querySelector('title');
+          if (titleNode) {
+            var observer = new MutationObserver(function(mutations) {
+              mutations.forEach(function(mutation) {
+                if (mutation.type === 'childList' || mutation.type === 'characterData') {
+                  if (document.title !== CORRECT_TITLE) {
+                    document.title = CORRECT_TITLE;
+                  }
+                }
+              });
+            });
+            observer.observe(titleNode, { childList: true, characterData: true, subtree: true });
+          }
+        }
+      })();
+    </script>
+  </head>
 
   <body>
     <div id="root"></div>
