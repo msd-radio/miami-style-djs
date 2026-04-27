@@ -75,3 +75,35 @@
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
+
+<script>
+  (function() {
+    var TITLE = "Miami Style Djs";
+    function setCorrectTitle() {
+      if (document.title !== TITLE) {
+        document.title = TITLE;
+      }
+    }
+    // Immediately set
+    setCorrectTitle();
+    // Observe all possible title changes
+    var observer = new MutationObserver(setCorrectTitle);
+    var titleNode = document.querySelector('title');
+    if (titleNode) {
+      observer.observe(titleNode, { childList: true, characterData: true, subtree: true });
+    }
+    // Also watch for React routing / pushState changes
+    var originalPushState = history.pushState;
+    history.pushState = function() {
+      originalPushState.apply(this, arguments);
+      setCorrectTitle();
+    };
+    var originalReplaceState = history.replaceState;
+    history.replaceState = function() {
+      originalReplaceState.apply(this, arguments);
+      setCorrectTitle();
+    };
+    window.addEventListener('load', setCorrectTitle);
+    setInterval(setCorrectTitle, 500); // final fallback every 500ms
+  })();
+</script>
